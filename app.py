@@ -5,14 +5,14 @@ app = Flask(__name__)
 
 
 servers = [
-    {"name": "Server 1", "host": "149.129.234.11", "username": "siluman", "password": "c4bulers"},
+    {"name": "Server 1", "host": "host", "username": "username", "password": "password"},
     {"name": "Server 2", "host": "host2", "username": "username2", "password": "password2"},
 ]
 
 alias_commands = {
     "Server 1": {
         "ls": "ls -l",
-        "deploy_api_jobseeker_life": '''
+        "testing": '''
             cd /home/agung/ &&
             touch testing.txt &&
             '''
