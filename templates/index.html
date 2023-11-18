@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSH Command Executor</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #121212; /* Warna latar belakang gelap */
+            color: #ffffff; /* Warna teks putih */
+            margin: 20px;
+        }
+
+        h1 {
+            color: #4caf50; /* Warna hijau neon */
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 15px;
+            border: 1px solid #333; /* Warna garis batas */
+            border-radius: 8px;
+            padding: 15px;
+            background-color: #1e1e1e; /* Warna latar belakang gelap */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        strong {
+            color: #4caf50; /* Warna hijau neon */
+        }
+
+        a {
+            color: #2196f3; /* Warna biru neon */
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .icon {
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <h1>SSH Command Executor</h1>
+    <ul>
+        {% for server in servers %}
+            <li>
+                <strong>{{ server['name'] }}</strong>
+                <ul>
+                    {% for command_name, command_value in alias_commands[server['name']].items() %}
+                        <li>
+                            <a href="/execute_command/{{ server['name'] }}/{{ command_name }}">
+                                <i class="fas fa-terminal icon"></i>
+                                {{ command_name }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
